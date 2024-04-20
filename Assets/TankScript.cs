@@ -6,10 +6,14 @@ public class TankScript : MonoBehaviour
 {
     public float moveSpeed;
 
+    public GameObject projectile;
+
+    private Vector3 trajectory;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -36,7 +40,9 @@ public class TankScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            trajectory = new Vector3(transform.position.x, transform.position.y + 0.45f, transform.position.z);
             // Spawn projectile from transform.position.x if some time has passed
+            Instantiate(projectile, trajectory, transform.rotation);
             Debug.Log("Fire!");
         }
     }
