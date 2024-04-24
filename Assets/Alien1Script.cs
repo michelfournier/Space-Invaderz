@@ -9,7 +9,6 @@ public class Alien1Script : MonoBehaviour
 
     public float moveSpeed;
 
-    public bool justMoved = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,13 +18,6 @@ public class Alien1Script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (justMoved)
-        {
-            Invoke("Test", 3);
-        }else 
-        {
-            Move();
-        }
         
     }
 
@@ -42,11 +34,8 @@ public class Alien1Script : MonoBehaviour
     private void Move()
     {
         transform.Translate(Vector2.right * Time.deltaTime * moveSpeed);
-        justMoved = true;
+
     }
 
-    private void Test()
-    {
-        justMoved = false;
-    }    
+ 
 }
