@@ -7,7 +7,7 @@ public class InvaderScript : MonoBehaviour
 {
     public Sprite[] animationSprites;
 
-    public float animationTime;
+    public float animationTime = 1.0f;
 
     private SpriteRenderer _spriteRenderer;
 
@@ -26,6 +26,13 @@ public class InvaderScript : MonoBehaviour
 
     private void animateSprite()
     {
+        _animationFrame++;
 
+        if (_animationFrame >= this.animationSprites.Length)
+        {
+            _animationFrame = 0;
+        }
+
+        _spriteRenderer.sprite = this.animationSprites[_animationFrame];
     }
 }
