@@ -8,7 +8,12 @@ public class Invaders : MonoBehaviour
     public int rows = 5;
     public int columns = 11;
 
+    public float speed = 10f;
+
     public InvaderScript[] prefabs;
+
+    private Vector3 _direction = Vector3.right; 
+
 
     private void Awake()
     {
@@ -27,5 +32,33 @@ public class Invaders : MonoBehaviour
                 invaders.transform.localPosition = position; // set new position at (-4.4, -2, 0)
             }
         }
+    }
+
+    private void Update()
+    {
+        this.transform.position += _direction * this.speed * Time.deltaTime;
+
+        Vector3 leftEdge = Camera.main.ViewportToWorldPoint(Vector3.zero);
+        Vector3 rightEdge = Camera.main.ViewportToWorldPoint(Vector3.right);
+
+        foreach (Transform invaders in this.transform)
+        {
+            if (!invaders.gameObject.activeInHierarchy)
+            {
+                continue;
+            }
+            if (_direction == Vector3.right && invaders.position.x >= rightEdge.x)
+            {
+
+            }
+        }
+    }
+
+    private void AdvanceRow()
+    {
+        _direction.x *= -1.0f;
+        Vector3 position = this.transform.position;
+        position.y -= 1.0f;
+        this.transform.position = position;
     }
 }

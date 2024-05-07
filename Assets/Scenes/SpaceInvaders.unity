@@ -896,6 +896,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rows: 5
   columns: 11
+  speed: 1
   prefabs:
   - {fileID: 488862010433324830, guid: 4421228400d54d34d8f41fd163588ee3, type: 3}
   - {fileID: 488862010433324830, guid: 4421228400d54d34d8f41fd163588ee3, type: 3}
